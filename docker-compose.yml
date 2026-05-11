@@ -1,0 +1,12 @@
+services:
+  weather-render:
+    build: .
+    container_name: weather-render
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      WX_LAT: "${WX_LAT:-50.30}"
+      WX_LON: "${WX_LON:-8.27}"
+      LOCATION_NAME: "${LOCATION_NAME:-Bad Camberg}"
+      CACHE_TTL_SECONDS: "3300"
